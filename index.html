@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pani Chaiyo — On-Demand Drinking Water Delivery Platform for Kathmandu</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  
+  <!-- Preconnect & Google Fonts (Comfortaa bold curly font, Outfit, Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons for UI accents -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Self-Contained Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- ========================================================
+       TOP ANNOUNCEMENT BAR (COMPACT MOBILE WITH CLOSE ICON)
+       ======================================================== -->
+  <div id="topAnnouncementBar" class="top-announcement-bar">
+    <div class="container top-bar-container">
+      <div class="top-bar-left">
+        <span class="live-pulse-dot"></span>
+        <span class="top-bar-msg">Launching in 40 Kathmandu Neighborhoods</span>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-helpline">Helpline: <a href="tel:+97714412345">+977 1-4412345</a></span>
+        <button type="button" class="top-bar-close-btn" onclick="dismissTopBanner()" aria-label="Close notification">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CLEAN TYPOGRAPHIC NAVBAR (NO LOGO SVG)
+       ======================================================== -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      
+      <!-- Typographic Wordmark Only (Clean and Sweet, No SVG, No Platform tag) -->
+      <a href="#hero" class="brand-wordmark"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></a>
+
+      <!-- Short Navigation Links -->
+      <nav class="nav-menu">
+        <a href="#areas" class="nav-link">Launch Areas</a>
+        <a href="#partners" class="nav-link">Partner Network</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Customer Waitlist CTA Button -->
+      <div class="nav-actions">
+        <button type="button" onclick="openWaitlistModal()" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.775rem;">
+          <i class="fa-solid fa-bell"></i>
+          <span>Join Waitlist</span>
+        </button>
+
+        <button type="button" id="mobileToggle" class="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Panel -->
+    <div id="mobileNavPanel" class="mobile-nav-panel">
+      <a href="#areas" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Launch Areas (40 Hubs)</a>
+      <a href="#partners" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Partner Network</a>
+      <a href="#how-it-works" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">How It Works</a>
+      <a href="#contact" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Contact & Helpline</a>
+      <button type="button" onclick="openWaitlistModal(); document.getElementById('mobileNavPanel').classList.remove('open');" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+        Join Launch Waitlist
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       HERO SECTION
+       ======================================================== -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Copy -->
+        <div>
+          <span class="eyebrow">
+            <i class="fa-solid fa-layer-group"></i> On-Demand Drinking Water Platform
+          </span>
+
+          <h1 class="hero-title">
+            The on-demand water delivery network for <span class="hero-title-highlight">Kathmandu.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Direct doorstep drinking water delivery for Kathmandu. We connect households and workplaces with verified local water partners who manage quality jars, vehicles, and delivery riders.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" onclick="openWaitlistModal()" class="btn btn-primary">
+              <i class="fa-solid fa-bell"></i>
+              <span>Get Notified on Launch</span>
+            </button>
+            <button type="button" onclick="openPartnerModal()" class="btn btn-secondary">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Join Partner Network</span>
+            </button>
+          </div>
+
+          <!-- Verified Platform Metrics Strip -->
+          <div class="metrics-row">
+            <div class="metric-card">
+              <span class="metric-num">40</span>
+              <span class="metric-caption">Kathmandu Areas</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">0%</span>
+              <span class="metric-caption">Launch Partner Fee</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">Fast</span>
+              <span class="metric-caption">Doorstep Dispatch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual (20L Water Jar) -->
+        <div>
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <img 
+                src="./images/jar-20l-panichaiyo.png" 
+                alt="Pani Chaiyo 20L Purified Water Jar" 
+                class="hero-img"
+                onerror="this.onerror=null; this.src='./images/jar-20l.jpg';"
+              />
+              <div class="hero-card-overlay">
+                <div class="hero-overlay-status">
+                  <span class="live-pulse-dot"></span>
+                  <div>
+                    <span class="hero-overlay-title">20L Purified Water Jar</span>
+                    <span class="hero-overlay-sub">Kathmandu Valley Delivery</span>
+                  </div>
+                </div>
+                <span class="hero-launch-badge">
+                  <span class="badge-dot-emerald"></span>
+                  <span>Coming Soon</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       KATHMANDU LAUNCH AREAS (READ ONLY — NO LOCATION PICKER)
+       ======================================================== -->
+  <section id="areas" class="section section-alt">
+    <div class="container">
+      
+      <div class="header-center">
+        <span class="eyebrow">
+          <i class="fa-solid fa-map-location-dot"></i> Planned Launch Coverage
+        </span>
+        <h2 class="title-lg">
+          40 Neighborhoods Across 4 Kathmandu Areas
+        </h2>
+        <p class="subtitle">
+          Pani Chaiyo is launching across 4 core municipal zones in Kathmandu. Check if your neighborhood is covered below.
+        </p>
+      </div>
+
+      <!-- Search & Zone Tabs -->
+      <div class="filter-bar">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input 
+            type="text" 
+            id="locationSearchInput" 
+            placeholder="Search your Kathmandu area (e.g. Baluwatar, Baneshwor, Thamel)..." 
+            class="search-input"
+          />
+        </div>
+
+        <div class="tabs-group">
+          <button type="button" class="tab-pill active" data-zone="all">All Kathmandu (40)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-north">Central & North (10)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-east">East & Airport (10)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-west">West & Ring Road (10)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-south">South & Heritage (10)</button>
+        </div>
+      </div>
+
+      <!-- 4 Areas Grid (Rendered via main.js) -->
+      <div id="zonesGrid" class="zones-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       GENERIC PARTNER BENEFITS CHECKLIST (SWIGGY / ZOMATO MODEL)
+       ======================================================== -->
+  <section id="partners" class="section">
+    <div class="container">
+      
+      <div class="partner-card-clean">
+        <div class="partner-layout">
+          
+          <!-- Left: The Marketplace Pitch & Benefits Checklist -->
+          <div>
+            <span class="eyebrow eyebrow-emerald">
+              <i class="fa-solid fa-handshake"></i> Partner Program
+            </span>
+            <h2 class="title-lg" style="font-size: 1.85rem;">
+              Partner With Kathmandu's Water Network
+            </h2>
+            <p class="subtitle" style="margin-bottom: 1.5rem;">
+              Connect directly with households and offices across Kathmandu. You supply the jars, vehicles, and delivery riders. We handle digital orders, routing, and customer payments.
+            </p>
+
+            <!-- Concise Checklist of Partner Benefits -->
+            <div class="checklist-grid">
+              
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>Steady Daily Orders</h4>
+                  <p>Recurring demand from homes and offices.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>0% Commission at Launch</h4>
+                  <p>Keep 100% of your earnings during launch.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>You Control Fleet & Jars</h4>
+                  <p>Manage your own vehicles, bottles, and riders.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>Clustered Route Dispatch</h4>
+                  <p>Deliver more jars faster with dense batches.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>Weekly Bank Settlements</h4>
+                  <p>Guaranteed direct deposits to your bank.</p>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <span class="check-icon">✓</span>
+                <div class="check-content">
+                  <h4>Zero Marketing Costs</h4>
+                  <p>Customers order directly via the platform.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: How the Partnership Works Callout -->
+          <div>
+            <div class="platform-box">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+                <span class="brand-wordmark" style="font-size: 1.45rem; text-decoration: none;">
+                  <span class="logo-blue" style="color: #60a5fa; -webkit-text-stroke: 0.45px #60a5fa;">pani</span><span class="logo-red">chaiyo</span>
+                </span>
+                <span style="font-size: 0.7rem; font-weight: 700; background: rgba(37, 99, 235, 0.25); color: #93c5fd; padding: 0.25rem 0.65rem; border-radius: 9999px; border: 1px solid rgba(147, 197, 253, 0.25);">
+                  Partner Network
+                </span>
+              </div>
+
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">Kathmandu Water Network</h3>
+
+              <p style="font-size: 0.825rem; line-height: 1.6; color: var(--color-slate-300); margin-bottom: 1.15rem;">
+                <span class="brand-wordmark" style="font-size: 1.05em; display: inline-flex;"><span class="logo-blue" style="color: #60a5fa; -webkit-text-stroke: 0.35px #60a5fa;">pani</span><span class="logo-red">chaiyo</span></span> connects your water business directly to homes and offices in Kathmandu. You supply the jars and delivery riders — we handle online customer orders, route dispatch, and weekly bank settlements.
+              </p>
+
+              <div style="margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                <span class="role-badge">✓ Certified Jars</span>
+                <span class="role-badge">✓ Your Own Fleet</span>
+                <span class="role-badge">✓ Local Drivers</span>
+                <span class="role-badge">✓ Direct Weekly Payouts</span>
+              </div>
+
+              <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                <div>
+                  <span style="font-size: 0.7rem; color: #93c5fd; display: block; font-weight: 600;">Partner Onboarding Helpline</span>
+                  <a href="tel:+97714412345" style="font-weight: 800; color: #ffffff; font-size: 0.95rem; text-decoration: none;">+977 1-4412345</a>
+                </div>
+                <button type="button" onclick="openPartnerModal()" class="btn btn-primary" style="background: #2563eb; padding: 0.55rem 1.15rem; font-size: 0.775rem;">
+                  Join Partner Network
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       WORKFLOW SECTION (HOW THE PLATFORM WORKS)
+       ======================================================== -->
+  <section id="how-it-works" class="section section-alt">
+    <div class="container">
+      
+      <div class="header-center">
+        <span class="eyebrow">
+          <i class="fa-solid fa-diagram-project"></i> Simple Operations
+        </span>
+        <h2 class="title-lg">
+          How <span class="brand-wordmark" style="font-size: 1em;"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></span> Operates
+        </h2>
+        <p class="subtitle">
+          A seamless 3-stage flow connecting Kathmandu customers with neighborhood water delivery partners.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        
+        <div class="step-card">
+          <span class="step-badge">Stage 01</span>
+          <h3 class="step-title">Customer Places Order</h3>
+          <p class="step-text">
+            Households and offices request 20L jars or sealed bottle packs on the Pani Chaiyo platform.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-badge">Stage 02</span>
+          <h3 class="step-title">Local Partner Dispatches</h3>
+          <p class="step-text">
+            The nearest verified water partner accepts the order, loads sanitized jars onto their delivery vehicle, and routes their driver.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-badge">Stage 03</span>
+          <h3 class="step-title">Doorstep Drop & Instant Pay</h3>
+          <p class="step-text">
+            Rider carries jars to the customer's doorstep with digital QR handover. Partner receives guaranteed weekly settlement.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONTACT & CENTRAL DISPATCH DESK SECTION
+       ======================================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-shell">
+        <div class="contact-core">
+          
+          <div class="contact-intro">
+            <span class="eyebrow eyebrow-emerald">
+              <i class="fa-solid fa-headset"></i> Central Dispatch Desk
+            </span>
+            <h2 class="title-lg">
+              Have questions about our Kathmandu launch?
+            </h2>
+            <p class="subtitle">
+              Whether you are a customer waiting for delivery or a water supplier wishing to join our network, our local team is here to assist.
+            </p>
+          </div>
+
+          <div class="contact-cards-grid">
+            
+            <!-- Direct Line Card -->
+            <a href="tel:+97714412345" class="contact-tile contact-tile-clickable">
+              <div class="contact-icon-pod pod-blue">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-tile-body">
+                <span class="contact-tile-label">Direct Line</span>
+                <span class="contact-tile-value">+977 1-4412345</span>
+                <span class="contact-tile-hint">Tap to call support &bull; Kathmandu</span>
+              </div>
+              <div class="contact-tile-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+            <!-- Operating Hours Card -->
+            <div class="contact-tile">
+              <div class="contact-icon-pod pod-emerald">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div class="contact-tile-body">
+                <span class="contact-tile-label">Operating Hours</span>
+                <span class="contact-tile-value">7:00 AM – 8:00 PM</span>
+                <span class="contact-tile-hint">Monday through Sunday Daily</span>
+              </div>
+            </div>
+
+            <!-- Email Inquiries Card -->
+            <a href="mailto:support@panichaiyo.com.np" class="contact-tile contact-tile-clickable">
+              <div class="contact-icon-pod pod-indigo">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-tile-body">
+                <span class="contact-tile-label">Email Inquiries</span>
+                <span class="contact-tile-value">support@panichaiyo.com.np</span>
+                <span class="contact-tile-hint">Fast response within 24 hours</span>
+              </div>
+              <div class="contact-tile-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Bottom Location & Action Bar -->
+          <div class="contact-footer-bar">
+            <div class="contact-location-info">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Central Office: Ward 4, Baluwatar, Kathmandu, Nepal</span>
+            </div>
+            <button type="button" onclick="openPartnerModal()" class="btn btn-secondary" style="font-size: 0.775rem; padding: 0.5rem 1.15rem;">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Partner Inquiries</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER (CLEAN & MINIMAL)
+       ======================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        
+        <div class="footer-info">
+          <a href="#hero" class="brand-wordmark" style="color: var(--color-white);"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></a>
+          <p>
+            On-demand drinking water marketplace connecting Kathmandu households and businesses with local delivery partners.
+          </p>
+        </div>
+
+        <div class="footer-contact-items">
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.05em;">Contact & Location</span>
+          <span>Baluwatar Ward 4, Kathmandu, Nepal</span>
+          <a href="tel:+97714412345">+977 1-4412345</a>
+          <a href="mailto:support@panichaiyo.com.np">support@panichaiyo.com.np</a>
+        </div>
+
+      </div>
+
+      <div class="footer-base">
+        <p>&copy; 2026 Pani Chaiyo Nepal Pvt. Ltd. All rights reserved.</p>
+        <p>Kathmandu Valley Drinking Water Marketplace Platform</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       CUSTOMER LAUNCH WAITLIST MODAL (SHORT & CENTERED)
+       ======================================================== -->
+  <div id="waitlistModal" class="modal-backdrop">
+    <div class="modal-card">
+      
+      <!-- State A: Form View -->
+      <div id="waitlistFormView">
+        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-top">
+          <h3 class="modal-title">Join Waitlist</h3>
+          <p class="modal-subtitle">Get notified when delivery starts in Kathmandu.</p>
+        </div>
+
+        <form id="customerWaitlistForm">
+          <div class="form-field">
+            <label class="field-label" for="customerPhone">
+              Mobile Number<span class="required-star">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="customerPhone" 
+              required 
+              placeholder="98XXXXXXXX" 
+              maxlength="10" 
+              class="field-input" 
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="customerEmail">
+              Email Address <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;">(Optional)</span>
+            </label>
+            <input 
+              type="email" 
+              id="customerEmail" 
+              placeholder="you@example.com" 
+              class="field-input" 
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem; margin-top: 0.5rem; font-size: 0.8125rem;">
+            <i class="fa-solid fa-check"></i>
+            <span>Join Waitlist</span>
+          </button>
+          
+          <p style="font-size: 0.685rem; color: var(--color-slate-400); text-align: center; margin-top: 0.65rem;">
+            No spam. We will inform you once we launch into the market.
+          </p>
+        </form>
+      </div>
+
+      <!-- State B: Whole Modal Clean Green Tick Success View -->
+      <div id="waitlistSuccessView" class="modal-success-full" style="display: none;">
+        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="success-tick-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h3 class="modal-success-title">You're on the Waitlist!</h3>
+        
+        <p class="modal-success-desc">
+          Thank you for signing up (<span id="registeredPhoneDisplay" class="phone-highlight"></span>). We will inform you directly once we launch delivery in Kathmandu.
+        </p>
+
+        <div class="success-badge-row">
+          <span class="success-pill"><i class="fa-solid fa-bell"></i> Launch Alert Active</span>
+          <span class="success-pill"><i class="fa-solid fa-shield-halved"></i> Zero Spam Guarantee</span>
+        </div>
+
+        <button type="button" onclick="closeWaitlistModal()" class="btn btn-primary btn-modal-done">
+          <span>Got It, Thanks</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       PARTNER NETWORK INQUIRY MODAL (SHORT & CENTERED)
+       ======================================================== -->
+  <div id="partnerModal" class="modal-backdrop">
+    <div class="modal-card">
+      
+      <!-- State A: Form View -->
+      <div id="partnerFormView">
+        <button type="button" class="modal-close-round" onclick="closePartnerModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-top">
+          <h3 class="modal-title">Join Partner Network</h3>
+          <p class="modal-subtitle">Connect with Kathmandu's on-demand water network.</p>
+        </div>
+
+        <form id="partnerNetworkForm">
+          <div class="form-field">
+            <label class="field-label" for="partnerPhone">
+              Mobile Number<span class="required-star">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="partnerPhone" 
+              required 
+              placeholder="98XXXXXXXX" 
+              maxlength="10" 
+              class="field-input" 
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="partnerEmail">
+              Email Address<span class="required-star">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="partnerEmail" 
+              required
+              placeholder="partner@example.com" 
+              class="field-input" 
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="partnerLocation">
+              Location / Hub<span class="required-star">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="partnerLocation" 
+              required 
+              placeholder="e.g. Baluwatar, Baneshwor, Kalanki..." 
+              class="field-input" 
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="partnerMessage">
+              Message <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;">(Optional)</span>
+            </label>
+            <textarea 
+              id="partnerMessage" 
+              placeholder="Fleet size, daily jar capacity, or questions..." 
+              class="field-textarea"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem; margin-top: 0.5rem; font-size: 0.8125rem;">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Submit Partner Application</span>
+          </button>
+          
+          <p style="font-size: 0.685rem; color: var(--color-slate-400); text-align: center; margin-top: 0.65rem;">
+            Our partner onboarding team will contact you within 24 hours.
+          </p>
+        </form>
+      </div>
+
+      <!-- State B: Whole Modal Clean Green Tick Success View -->
+      <div id="partnerSuccessView" class="modal-success-full" style="display: none;">
+        <button type="button" class="modal-close-round" onclick="closePartnerModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="success-tick-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h3 class="modal-success-title">Application Received!</h3>
+        
+        <p class="modal-success-desc">
+          Thank you for reaching out (<span id="partnerPhoneDisplay" class="phone-highlight"></span>). Our Kathmandu partnership team will contact you within 24 hours.
+        </p>
+
+        <div class="success-badge-row">
+          <span class="success-pill"><i class="fa-solid fa-handshake"></i> Dispatch Priority</span>
+          <span class="success-pill"><i class="fa-solid fa-clock"></i> 24h Response</span>
+        </div>
+
+        <button type="button" onclick="closePartnerModal()" class="btn btn-primary btn-modal-done">
+          <span>Got It, Thanks</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Standalone Script -->
+  <script src="./main.js"></script>
+</body>
+</html>
