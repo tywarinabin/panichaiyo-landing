@@ -152,23 +152,29 @@ html {
 
 .top-bar-close-btn {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: var(--color-slate-400);
   font-size: 0.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: color 0.15s, background-color 0.15s;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
   padding: 0;
 }
 
 .top-bar-close-btn:hover {
+  background: var(--color-slate-950);
+  border-color: var(--color-slate-950);
   color: var(--color-white);
-  background: rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-close-btn:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
 }
 
 body {
@@ -344,13 +350,13 @@ button, input, select, textarea {
 /* Pure Typographic Logo — Bold Curly Comfortaa, zero space in-between */
 .brand-wordmark {
   font-family: "Comfortaa", "Outfit", cursive, sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0;
   user-select: none;
   display: inline-flex;
   align-items: baseline;
-  gap: 0;
+  gap: 0.035em;
   line-height: 1;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -358,25 +364,25 @@ button, input, select, textarea {
 
 @media (min-width: 640px) {
   .brand-wordmark {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
 
 .brand-wordmark span {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .brand-wordmark .logo-blue {
   color: var(--color-primary);
-  font-weight: 700;
-  -webkit-text-stroke: 0.45px var(--color-primary);
+  font-weight: 800;
+  -webkit-text-stroke: 0.9px var(--color-primary);
   paint-order: stroke fill;
 }
 
 .brand-wordmark .logo-red {
   color: #dc2626;
-  font-weight: 700;
-  -webkit-text-stroke: 0.45px #dc2626;
+  font-weight: 800;
+  -webkit-text-stroke: 0.9px #dc2626;
   paint-order: stroke fill;
 }
 
@@ -510,6 +516,10 @@ button, input, select, textarea {
    ======================================================== */
 
 .hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 5.5rem);
+  min-height: calc(100svh - 5.5rem);
   position: relative;
   padding: 2.25rem 0 2.5rem;
   background: radial-gradient(circle at 12% 18%, rgba(239, 246, 255, 0.75) 0%, rgba(255, 255, 255, 0.98) 100%);
@@ -518,6 +528,8 @@ button, input, select, textarea {
 
 @media (min-width: 640px) {
   .hero {
+    min-height: calc(100vh - 6rem);
+    min-height: calc(100svh - 6rem);
     padding: 3.5rem 0 4.5rem;
   }
 }
@@ -603,8 +615,6 @@ button, input, select, textarea {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-slate-200);
   max-width: 30rem;
 }
 
@@ -612,13 +622,17 @@ button, input, select, textarea {
   .metrics-row {
     gap: 0.75rem;
     margin-top: 2rem;
-    padding-top: 2rem;
   }
 }
 
 .metric-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  padding: 0.65rem 0.6rem;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .metric-num {
@@ -629,8 +643,37 @@ button, input, select, textarea {
   line-height: 1.1;
 }
 
+.metric-price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.metric-price-old {
+  color: #b91c1c;
+  font-size: 0.75rem;
+  text-decoration: line-through;
+}
+
+.metric-price-new {
+  color: var(--color-emerald-text);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
 @media (min-width: 640px) {
   .metric-num {
+    font-size: 1.35rem;
+  }
+
+  .metric-price-old {
+    font-size: 0.85rem;
+  }
+
+  .metric-price-new {
     font-size: 1.35rem;
   }
 }
@@ -649,48 +692,36 @@ button, input, select, textarea {
   }
 }
 
-/* Hero Showcase - Transparent Border & Pure Floating Jar */
-.hero-card {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  max-width: 30rem;
+/* Jar and launch price stay together as one hero offer. */
+.hero-feature-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 30rem);
   margin-left: auto;
   margin-right: auto;
-  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
-  .hero-card {
+  .hero-feature-card {
     margin-right: 0;
   }
 }
 
-.hero-card-inner {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  overflow: visible;
-  position: relative;
-  padding: 0 0 3.75rem 0;
+.hero-product-pane {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-@media (min-width: 640px) {
-  .hero-card-inner {
-    padding: 0 0 4.25rem 0;
-  }
+  min-width: 0;
+  padding: 1rem 1rem 0.85rem;
+  background: transparent;
 }
 
 .hero-img {
   width: 100%;
-  max-width: 15rem;
-  height: 14rem;
+  max-width: 14rem;
+  height: 14.5rem;
   object-fit: contain; /* Full jar, crisp & not zoomed */
   display: block;
   margin: 0 auto;
@@ -699,57 +730,30 @@ button, input, select, textarea {
   transition: transform 0.3s var(--ease-smooth);
 }
 
-.hero-card:hover .hero-img {
+.hero-feature-card:hover .hero-img {
   transform: translateY(-2px);
 }
 
 @media (min-width: 640px) {
   .hero-img {
-    height: 18rem;
-    max-width: 18rem;
+    height: 15rem;
+    max-width: 14rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-img {
-    height: 20rem;
-    max-width: 20rem;
+    height: 17rem;
+    max-width: 15rem;
   }
 }
 
-.hero-card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0.65rem 0.95rem;
-  border-radius: 0.85rem;
-  border: 1px solid rgba(226, 232, 240, 0.95);
+.hero-product-caption {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
-}
-
-@media (min-width: 640px) {
-  .hero-card-overlay {
-    bottom: 0;
-    left: 1rem;
-    right: 1rem;
-    padding: 0.75rem 1.15rem;
-    border-radius: 1rem;
-  }
-}
-
-.hero-overlay-status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 0;
+  gap: 0.35rem;
+  text-align: center;
 }
 
 .hero-overlay-title {
@@ -767,6 +771,15 @@ button, input, select, textarea {
   font-weight: 600;
   display: block;
   margin-top: 0.1rem;
+}
+
+.hero-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-emerald-text);
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .hero-launch-badge {
@@ -959,93 +972,58 @@ button, input, select, textarea {
   font-size: 0.65rem;
 }
 
-/* ========================================================
-   PARTNER BENEFITS CHECKLIST (GENERIC VENDOR / ON-DEMAND PLATFORM)
-   ======================================================== */
-
-.partner-card-clean {
-  background: var(--color-white);
-  border: 1px solid var(--color-slate-200);
-  border-radius: 1.15rem;
-  padding: 1.35rem 1.15rem;
-  box-shadow: var(--shadow-sm);
-}
-
-@media (min-width: 640px) {
-  .partner-card-clean {
-    border-radius: 1.35rem;
-    padding: 2.25rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .partner-card-clean {
-    padding: 3rem 2.5rem;
-  }
-}
-
-.partner-layout {
+.offer-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-@media (min-width: 1024px) {
-  .partner-layout {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3.5rem;
-  }
-}
-
-.checklist-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
-  margin-top: 1.25rem;
-}
-
-@media (min-width: 640px) {
-  .checklist-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-}
-
-.check-item {
-  display: flex;
-  align-items: flex-start;
   gap: 0.65rem;
 }
 
-.check-icon {
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 0.45rem;
-  background: var(--color-emerald-bg);
-  color: var(--color-emerald-main);
-  display: grid;
-  place-items: center;
-  font-size: 0.7rem;
-  font-weight: 800;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
+@media (min-width: 600px) {
+  .offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.check-content h4 {
+@media (min-width: 960px) {
+  .offer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.5rem;
+  background: var(--color-white);
+}
+
+.offer-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.offer-item h3 {
   font-size: 0.825rem;
   font-weight: 800;
   color: var(--color-slate-900);
 }
 
 @media (min-width: 640px) {
-  .check-content h4 {
+  .offer-item h3 {
     font-size: 0.875rem;
   }
 }
 
-.check-content p {
+.offer-item p {
   font-size: 0.75rem;
   color: var(--color-slate-500);
   line-height: 1.45;
@@ -1053,66 +1031,9 @@ button, input, select, textarea {
 }
 
 @media (min-width: 640px) {
-  .check-content p {
+  .offer-item p {
     font-size: 0.775rem;
   }
-}
-
-/* Partner Platform Callout Box */
-.platform-box {
-  background: linear-gradient(135deg, var(--color-slate-900) 0%, #172554 100%);
-  color: var(--color-white);
-  border-radius: 1rem;
-  padding: 1.35rem 1.15rem;
-  box-shadow: var(--shadow-lg);
-}
-
-@media (min-width: 640px) {
-  .platform-box {
-    border-radius: 1.15rem;
-    padding: 1.75rem;
-  }
-}
-
-.platform-box h3 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 0.4rem;
-}
-
-@media (min-width: 640px) {
-  .platform-box h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-.platform-box p {
-  font-size: 0.775rem;
-  color: var(--color-slate-300);
-  line-height: 1.5;
-  margin-bottom: 1.15rem;
-}
-
-@media (min-width: 640px) {
-  .platform-box p {
-    font-size: 0.825rem;
-    line-height: 1.55;
-    margin-bottom: 1.25rem;
-  }
-}
-
-.role-badge {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.35rem;
-  background: rgba(255, 255, 255, 0.12);
-  color: #93c5fd;
-  font-size: 0.675rem;
-  font-weight: 700;
-  margin-right: 0.35rem;
-  margin-bottom: 0.35rem;
 }
 
 /* ========================================================

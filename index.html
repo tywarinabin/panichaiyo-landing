@@ -26,7 +26,7 @@
     <div class="container top-bar-container">
       <div class="top-bar-left">
         <span class="live-pulse-dot"></span>
-        <span class="top-bar-msg">Launching in 40 Kathmandu Neighborhoods</span>
+        <span class="top-bar-msg">Launching in 40 places across Kathmandu.</span>
       </div>
       <div class="top-bar-right">
         <span class="top-bar-helpline">Helpline: <a href="tel:+97714412345">+977 1-4412345</a></span>
@@ -49,7 +49,7 @@
       <!-- Short Navigation Links -->
       <nav class="nav-menu">
         <a href="#areas" class="nav-link">Launch Areas</a>
-        <a href="#partners" class="nav-link">Partner Network</a>
+        <a href="#offers" class="nav-link">What We Provide</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -70,11 +70,11 @@
     <!-- Mobile Navigation Panel -->
     <div id="mobileNavPanel" class="mobile-nav-panel">
       <a href="#areas" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Launch Areas (40 Hubs)</a>
-      <a href="#partners" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Partner Network</a>
+      <a href="#offers" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">What We Provide</a>
       <a href="#how-it-works" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">How It Works</a>
       <a href="#contact" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Contact & Helpline</a>
       <button type="button" onclick="openWaitlistModal(); document.getElementById('mobileNavPanel').classList.remove('open');" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
-        Join Launch Waitlist
+        Join Customer Waitlist
       </button>
     </div>
   </header>
@@ -97,7 +97,7 @@
           </h1>
 
           <p class="hero-desc">
-            Direct doorstep drinking water delivery for Kathmandu. We connect households and workplaces with verified local water partners who manage quality jars, vehicles, and delivery riders.
+            Quality drinking water delivered to your doorstep, without the usual hassle. Order for home or business with clear pricing and flexible delivery options.
           </p>
 
           <div class="hero-actions">
@@ -105,51 +105,45 @@
               <i class="fa-solid fa-bell"></i>
               <span>Get Notified on Launch</span>
             </button>
-            <button type="button" onclick="openPartnerModal()" class="btn btn-secondary">
-              <i class="fa-solid fa-handshake"></i>
-              <span>Join Partner Network</span>
+            <button type="button" onclick="document.getElementById('offers').scrollIntoView({ behavior: 'smooth' })" class="btn btn-secondary">
+              <i class="fa-solid fa-tags"></i>
+              <span>Explore Our Offers</span>
             </button>
           </div>
 
-          <!-- Verified Platform Metrics Strip -->
+          <!-- Hero Metrics -->
           <div class="metrics-row">
             <div class="metric-card">
               <span class="metric-num">40</span>
               <span class="metric-caption">Kathmandu Areas</span>
             </div>
             <div class="metric-card">
-              <span class="metric-num">0%</span>
-              <span class="metric-caption">Launch Partner Fee</span>
+              <span class="metric-num">24h</span>
+              <span class="metric-caption">Customer Support</span>
             </div>
             <div class="metric-card">
-              <span class="metric-num">Fast</span>
-              <span class="metric-caption">Doorstep Dispatch</span>
+              <span class="metric-price-line" aria-label="Reduced from 80 rupees to 50 rupees">
+                <span class="metric-price-old">₹80</span>
+                <span class="metric-price-new">₹50</span>
+              </span>
+              <span class="metric-caption">Launch Price · 20 L Jar</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Hero Visual (20L Water Jar) -->
+        <!-- Jar image and launch status -->
         <div>
-          <div class="hero-card">
-            <div class="hero-card-inner">
+          <div class="hero-feature-card">
+            <div class="hero-product-pane">
               <img 
                 src="./images/jar-20l-panichaiyo.png" 
-                alt="Pani Chaiyo 20L Purified Water Jar" 
+                alt="Pani Chaiyo 20 L Purified Water Jar" 
                 class="hero-img"
                 onerror="this.onerror=null; this.src='./images/jar-20l.jpg';"
               />
-              <div class="hero-card-overlay">
-                <div class="hero-overlay-status">
-                  <span class="live-pulse-dot"></span>
-                  <div>
-                    <span class="hero-overlay-title">20L Purified Water Jar</span>
-                    <span class="hero-overlay-sub">Kathmandu Valley Delivery</span>
-                  </div>
-                </div>
-                <span class="hero-launch-badge">
-                  <span class="badge-dot-emerald"></span>
-                  <span>Coming Soon</span>
-                </span>
+              <div class="hero-product-caption">
+                <span class="hero-overlay-title">20 L Purified Water Jar</span>
+                <span class="hero-coming-soon"><span class="badge-dot-emerald"></span>Coming Soon</span>
               </div>
             </div>
           </div>
@@ -207,120 +201,27 @@
   </section>
 
   <!-- ========================================================
-       GENERIC PARTNER BENEFITS CHECKLIST (SWIGGY / ZOMATO MODEL)
+       CUSTOMER VALUE AND SERVICE OFFERS
        ======================================================== -->
-  <section id="partners" class="section">
+  <section id="offers" class="section">
     <div class="container">
-      
-      <div class="partner-card-clean">
-        <div class="partner-layout">
-          
-          <!-- Left: The Marketplace Pitch & Benefits Checklist -->
-          <div>
-            <span class="eyebrow eyebrow-emerald">
-              <i class="fa-solid fa-handshake"></i> Partner Program
-            </span>
-            <h2 class="title-lg" style="font-size: 1.85rem;">
-              Partner With Kathmandu's Water Network
-            </h2>
-            <p class="subtitle" style="margin-bottom: 1.5rem;">
-              Connect directly with households and offices across Kathmandu. You supply the jars, vehicles, and delivery riders. We handle digital orders, routing, and customer payments.
-            </p>
-
-            <!-- Concise Checklist of Partner Benefits -->
-            <div class="checklist-grid">
-              
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>Steady Daily Orders</h4>
-                  <p>Recurring demand from homes and offices.</p>
-                </div>
-              </div>
-
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>0% Commission at Launch</h4>
-                  <p>Keep 100% of your earnings during launch.</p>
-                </div>
-              </div>
-
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>You Control Fleet & Jars</h4>
-                  <p>Manage your own vehicles, bottles, and riders.</p>
-                </div>
-              </div>
-
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>Clustered Route Dispatch</h4>
-                  <p>Deliver more jars faster with dense batches.</p>
-                </div>
-              </div>
-
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>Weekly Bank Settlements</h4>
-                  <p>Guaranteed direct deposits to your bank.</p>
-                </div>
-              </div>
-
-              <div class="check-item">
-                <span class="check-icon">✓</span>
-                <div class="check-content">
-                  <h4>Zero Marketing Costs</h4>
-                  <p>Customers order directly via the platform.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Right: How the Partnership Works Callout -->
-          <div>
-            <div class="platform-box">
-              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
-                <span class="brand-wordmark" style="font-size: 1.45rem; text-decoration: none;">
-                  <span class="logo-blue" style="color: #60a5fa; -webkit-text-stroke: 0.45px #60a5fa;">pani</span><span class="logo-red">chaiyo</span>
-                </span>
-                <span style="font-size: 0.7rem; font-weight: 700; background: rgba(37, 99, 235, 0.25); color: #93c5fd; padding: 0.25rem 0.65rem; border-radius: 9999px; border: 1px solid rgba(147, 197, 253, 0.25);">
-                  Partner Network
-                </span>
-              </div>
-
-              <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">Kathmandu Water Network</h3>
-
-              <p style="font-size: 0.825rem; line-height: 1.6; color: var(--color-slate-300); margin-bottom: 1.15rem;">
-                <span class="brand-wordmark" style="font-size: 1.05em; display: inline-flex;"><span class="logo-blue" style="color: #60a5fa; -webkit-text-stroke: 0.35px #60a5fa;">pani</span><span class="logo-red">chaiyo</span></span> connects your water business directly to homes and offices in Kathmandu. You supply the jars and delivery riders — we handle online customer orders, route dispatch, and weekly bank settlements.
-              </p>
-
-              <div style="margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.35rem;">
-                <span class="role-badge">✓ Certified Jars</span>
-                <span class="role-badge">✓ Your Own Fleet</span>
-                <span class="role-badge">✓ Local Drivers</span>
-                <span class="role-badge">✓ Direct Weekly Payouts</span>
-              </div>
-
-              <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-                <div>
-                  <span style="font-size: 0.7rem; color: #93c5fd; display: block; font-weight: 600;">Partner Onboarding Helpline</span>
-                  <a href="tel:+97714412345" style="font-weight: 800; color: #ffffff; font-size: 0.95rem; text-decoration: none;">+977 1-4412345</a>
-                </div>
-                <button type="button" onclick="openPartnerModal()" class="btn btn-primary" style="background: #2563eb; padding: 0.55rem 1.15rem; font-size: 0.775rem;">
-                  Join Partner Network
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="header-center">
+        <span class="eyebrow eyebrow-emerald"><i class="fa-solid fa-circle-check"></i> What We Provide</span>
+        <h2 class="title-lg">Water delivery, made easier</h2>
+        <p class="subtitle">Straightforward prices, flexible ordering, and dependable support for homes and businesses.</p>
       </div>
 
+      <div class="offer-grid">
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-tag"></i></span><div><h3>Lower prices</h3><p>Get a 20L jar for ₹50 instead of the usual ₹80.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3>Free delivery over ₹500</h3><p>Delivery is on us when your order total is above ₹500.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-house"></i></span><div><h3>Convenient doorstep service</h3><p>Get drinking water delivered where you need it.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-list-check"></i></span><div><h3>Simple ordering</h3><p>Choose what you need and place an order without extra steps.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-calendar-days"></i></span><div><h3>Flexible order options</h3><p>Order once or choose daily, weekly, or monthly delivery to suit your routine.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span><div><h3>Less hassle</h3><p>No repeated calls or last-minute runs to arrange your water.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-file-invoice"></i></span><div><h3>Business invoices</h3><p>Get invoices and clear billing records for your workplace.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-chart-line"></i></span><div><h3>Daily or monthly records</h3><p>Keep track of business orders and spending by day or month.</p></div></article>
+        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-headset"></i></span><div><h3>24-hour support</h3><p>Reach our support team whenever you need help with an order.</p></div></article>
+      </div>
     </div>
   </section>
 
@@ -338,7 +239,7 @@
           How <span class="brand-wordmark" style="font-size: 1em;"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></span> Operates
         </h2>
         <p class="subtitle">
-          A seamless 3-stage flow connecting Kathmandu customers with neighborhood water delivery partners.
+          A simple 3-stage flow from choosing your water to doorstep delivery.
         </p>
       </div>
 
@@ -354,17 +255,17 @@
 
         <div class="step-card">
           <span class="step-badge">Stage 02</span>
-          <h3 class="step-title">Local Partner Dispatches</h3>
+          <h3 class="step-title">Your Order Is Prepared</h3>
           <p class="step-text">
-            The nearest verified water partner accepts the order, loads sanitized jars onto their delivery vehicle, and routes their driver.
+            Your water order is prepared and sent out for delivery in your area.
           </p>
         </div>
 
         <div class="step-card">
           <span class="step-badge">Stage 03</span>
-          <h3 class="step-title">Doorstep Drop & Instant Pay</h3>
+          <h3 class="step-title">Doorstep Delivery</h3>
           <p class="step-text">
-            Rider carries jars to the customer's doorstep with digital QR handover. Partner receives guaranteed weekly settlement.
+            Receive your jars at the door and pay using the available payment options.
           </p>
         </div>
 
@@ -389,7 +290,7 @@
               Have questions about our Kathmandu launch?
             </h2>
             <p class="subtitle">
-              Whether you are a customer waiting for delivery or a water supplier wishing to join our network, our local team is here to assist.
+              Need help with an order or have a question about delivery? Our local team is here to assist.
             </p>
           </div>
 
@@ -445,9 +346,9 @@
               <i class="fa-solid fa-location-dot"></i>
               <span>Central Office: Ward 4, Baluwatar, Kathmandu, Nepal</span>
             </div>
-            <button type="button" onclick="openPartnerModal()" class="btn btn-secondary" style="font-size: 0.775rem; padding: 0.5rem 1.15rem;">
-              <i class="fa-solid fa-handshake"></i>
-              <span>Partner Inquiries</span>
+            <button type="button" onclick="openWaitlistModal()" class="btn btn-secondary" style="font-size: 0.775rem; padding: 0.5rem 1.15rem;">
+              <i class="fa-solid fa-bell"></i>
+              <span>Join the Waitlist</span>
             </button>
           </div>
 
@@ -466,7 +367,7 @@
         <div class="footer-info">
           <a href="#hero" class="brand-wordmark" style="color: var(--color-white);"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></a>
           <p>
-            On-demand drinking water marketplace connecting Kathmandu households and businesses with local delivery partners.
+            On-demand drinking water delivery for Kathmandu households and businesses.
           </p>
         </div>
 
@@ -518,6 +419,19 @@
           </div>
 
           <div class="form-field">
+            <label class="field-label" for="customerLocation">
+              Delivery location<span class="required-star">*</span>
+            </label>
+            <input
+              type="text"
+              id="customerLocation"
+              required
+              placeholder="Area, street, or nearby landmark"
+              class="field-input"
+            />
+          </div>
+
+          <div class="form-field">
             <label class="field-label" for="customerEmail">
               Email Address <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;">(Optional)</span>
             </label>
@@ -553,7 +467,7 @@
         <h3 class="modal-success-title">You're on the Waitlist!</h3>
         
         <p class="modal-success-desc">
-          Thank you for signing up (<span id="registeredPhoneDisplay" class="phone-highlight"></span>). We will inform you directly once we launch delivery in Kathmandu.
+          Thank you for signing up (<span id="registeredPhoneDisplay" class="phone-highlight"></span>) near <span id="registeredLocationDisplay" class="phone-highlight"></span>. We will inform you directly once we launch delivery in Kathmandu.
         </p>
 
         <div class="success-badge-row">
@@ -562,114 +476,6 @@
         </div>
 
         <button type="button" onclick="closeWaitlistModal()" class="btn btn-primary btn-modal-done">
-          <span>Got It, Thanks</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ========================================================
-       PARTNER NETWORK INQUIRY MODAL (SHORT & CENTERED)
-       ======================================================== -->
-  <div id="partnerModal" class="modal-backdrop">
-    <div class="modal-card">
-      
-      <!-- State A: Form View -->
-      <div id="partnerFormView">
-        <button type="button" class="modal-close-round" onclick="closePartnerModal()" aria-label="Close modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="modal-top">
-          <h3 class="modal-title">Join Partner Network</h3>
-          <p class="modal-subtitle">Connect with Kathmandu's on-demand water network.</p>
-        </div>
-
-        <form id="partnerNetworkForm">
-          <div class="form-field">
-            <label class="field-label" for="partnerPhone">
-              Mobile Number<span class="required-star">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="partnerPhone" 
-              required 
-              placeholder="98XXXXXXXX" 
-              maxlength="10" 
-              class="field-input" 
-            />
-          </div>
-
-          <div class="form-field">
-            <label class="field-label" for="partnerEmail">
-              Email Address<span class="required-star">*</span>
-            </label>
-            <input 
-              type="email" 
-              id="partnerEmail" 
-              required
-              placeholder="partner@example.com" 
-              class="field-input" 
-            />
-          </div>
-
-          <div class="form-field">
-            <label class="field-label" for="partnerLocation">
-              Location / Hub<span class="required-star">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="partnerLocation" 
-              required 
-              placeholder="e.g. Baluwatar, Baneshwor, Kalanki..." 
-              class="field-input" 
-            />
-          </div>
-
-          <div class="form-field">
-            <label class="field-label" for="partnerMessage">
-              Message <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;">(Optional)</span>
-            </label>
-            <textarea 
-              id="partnerMessage" 
-              placeholder="Fleet size, daily jar capacity, or questions..." 
-              class="field-textarea"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem; margin-top: 0.5rem; font-size: 0.8125rem;">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span>Submit Partner Application</span>
-          </button>
-          
-          <p style="font-size: 0.685rem; color: var(--color-slate-400); text-align: center; margin-top: 0.65rem;">
-            Our partner onboarding team will contact you within 24 hours.
-          </p>
-        </form>
-      </div>
-
-      <!-- State B: Whole Modal Clean Green Tick Success View -->
-      <div id="partnerSuccessView" class="modal-success-full" style="display: none;">
-        <button type="button" class="modal-close-round" onclick="closePartnerModal()" aria-label="Close modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-        
-        <div class="success-tick-circle">
-          <i class="fa-solid fa-check"></i>
-        </div>
-
-        <h3 class="modal-success-title">Application Received!</h3>
-        
-        <p class="modal-success-desc">
-          Thank you for reaching out (<span id="partnerPhoneDisplay" class="phone-highlight"></span>). Our Kathmandu partnership team will contact you within 24 hours.
-        </p>
-
-        <div class="success-badge-row">
-          <span class="success-pill"><i class="fa-solid fa-handshake"></i> Dispatch Priority</span>
-          <span class="success-pill"><i class="fa-solid fa-clock"></i> 24h Response</span>
-        </div>
-
-        <button type="button" onclick="closePartnerModal()" class="btn btn-primary btn-modal-done">
           <span>Got It, Thanks</span>
         </button>
       </div>

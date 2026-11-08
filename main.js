@@ -209,6 +209,7 @@ function closeWaitlistModal() {
 function handleWaitlistSubmit(e) {
   e.preventDefault()
   const phone = document.getElementById("customerPhone").value.trim()
+  const location = document.getElementById("customerLocation").value.trim()
   const email = document.getElementById("customerEmail").value.trim()
 
   // Validate 10-digit mobile
@@ -221,6 +222,7 @@ function handleWaitlistSubmit(e) {
 
   const submission = {
     phone,
+    location,
     email: email || null,
     registeredAt: new Date().toISOString(),
   }
@@ -236,8 +238,10 @@ function handleWaitlistSubmit(e) {
   const formView = document.getElementById("waitlistFormView")
   const successView = document.getElementById("waitlistSuccessView")
   const phoneDisplay = document.getElementById("registeredPhoneDisplay")
+  const locationDisplay = document.getElementById("registeredLocationDisplay")
 
   if (phoneDisplay) phoneDisplay.textContent = phone
+  if (locationDisplay) locationDisplay.textContent = location
   if (formView) formView.style.display = "none"
   if (successView) successView.style.display = "block"
 }
@@ -279,12 +283,6 @@ function initEventListeners() {
     form.addEventListener("submit", handleWaitlistSubmit)
   }
 
-  // Partner Network Form
-  const partnerForm = document.getElementById("partnerNetworkForm")
-  if (partnerForm) {
-    partnerForm.addEventListener("submit", handlePartnerSubmit)
-  }
-
   // Modal Backdrop Clicks
   const modal = document.getElementById("waitlistModal")
   if (modal) {
@@ -293,79 +291,12 @@ function initEventListeners() {
     })
   }
 
-  const pModal = document.getElementById("partnerModal")
-  if (pModal) {
-    pModal.addEventListener("click", (e) => {
-      if (e.target === pModal) closePartnerModal()
-    })
-  }
-
   // Escape key closes modals
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeWaitlistModal()
-      closePartnerModal()
     }
   })
-}
-
-function openPartnerModal() {
-  const modal = document.getElementById("partnerModal")
-  const formView = document.getElementById("partnerFormView")
-  const successView = document.getElementById("partnerSuccessView")
-
-  if (formView) formView.style.display = "block"
-  if (successView) successView.style.display = "none"
-
-  const form = document.getElementById("partnerNetworkForm")
-  if (form) form.reset()
-
-  if (modal) {
-    const card = modal.querySelector(".modal-card")
-    if (card) card.scrollTop = 0
-    modal.classList.add("open")
-  }
-}
-
-function closePartnerModal() {
-  const modal = document.getElementById("partnerModal")
-  if (modal) modal.classList.remove("open")
-}
-
-function handlePartnerSubmit(e) {
-  e.preventDefault()
-  const phone = document.getElementById("partnerPhone").value.trim()
-  const email = document.getElementById("partnerEmail").value.trim()
-  const location = document.getElementById("partnerLocation").value.trim()
-  const message = document.getElementById("partnerMessage").value.trim()
-
-  if (!/^9[78]\d{8}$/.test(phone)) {
-    alert("Please enter a valid 10-digit mobile number (e.g. 98XXXXXXXX).")
-    return
-  }
-
-  const submission = {
-    phone,
-    email,
-    location,
-    message: message || null,
-    submittedAt: new Date().toISOString(),
-  }
-
-  const list = JSON.parse(localStorage.getItem("pc_partner_inquiries") || "[]")
-  list.push(submission)
-  localStorage.setItem("pc_partner_inquiries", JSON.stringify(list))
-
-  // Trigger mobile auto zoom-out, keyboard dismiss, and scroll reset
-  resetModalStateOnSubmit("partnerModal")
-
-  const formView = document.getElementById("partnerFormView")
-  const successView = document.getElementById("partnerSuccessView")
-  const phoneDisplay = document.getElementById("partnerPhoneDisplay")
-
-  if (phoneDisplay) phoneDisplay.textContent = phone
-  if (formView) formView.style.display = "none"
-  if (successView) successView.style.display = "block"
 }
 
 // Dismiss Top Announcement Banner
@@ -387,8 +318,6 @@ function dismissTopBanner() {
 window.dismissTopBanner = dismissTopBanner
 window.openWaitlistModal = openWaitlistModal
 window.closeWaitlistModal = closeWaitlistModal
-window.openPartnerModal = openPartnerModal
-window.closePartnerModal = closePartnerModal
 
 // Check for dismissed banner on initial load
 try {
