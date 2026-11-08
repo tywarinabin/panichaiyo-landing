@@ -7,7 +7,6 @@ const KATHMANDU_ZONES = [
   {
     id: "ktm-north",
     name: "Central & North",
-    hub: "Central Route Belt",
     places: [
       "Baluwatar",
       "Maharajgunj",
@@ -24,7 +23,6 @@ const KATHMANDU_ZONES = [
   {
     id: "ktm-east",
     name: "East & Airport",
-    hub: "East Ring Corridor",
     places: [
       "New Baneshwor",
       "Old Baneshwor",
@@ -41,7 +39,6 @@ const KATHMANDU_ZONES = [
   {
     id: "ktm-west",
     name: "West & Ring Road",
-    hub: "West Transit Belt",
     places: [
       "Kalanki",
       "Swoyambhu",
@@ -58,7 +55,6 @@ const KATHMANDU_ZONES = [
   {
     id: "ktm-south",
     name: "South & Heritage",
-    hub: "Heritage & South Route",
     places: [
       "Tripureshwor",
       "Basantapur",
@@ -105,13 +101,8 @@ function renderLaunchAreas() {
       <div class="zone-box">
         <div>
           <h3 class="zone-title">${zone.name}</h3>
-          <p class="zone-caption">
-            <i class="fa-solid fa-location-dot" style="color: var(--color-primary); font-size: 0.65rem;"></i>
-            <span>${zone.hub}</span>
-          </p>
-
           <span style="font-size: 0.675rem; font-weight: 700; text-transform: uppercase; color: var(--color-slate-400); display: block; margin-bottom: 0.35rem;">
-            Neighborhoods (${placesToShow.length})
+            Planned neighborhoods (${placesToShow.length})
           </span>
 
           <div class="places-list">
@@ -119,7 +110,7 @@ function renderLaunchAreas() {
               .map(
                 (place) => `
               <span class="place-tag">
-                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-location-dot"></i>
                 <span>${place}</span>
               </span>
             `,
@@ -128,12 +119,9 @@ function renderLaunchAreas() {
           </div>
         </div>
 
-        <div style="padding-top: 0.85rem; margin-top: 0.85rem; border-top: 1px solid var(--color-slate-100); display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-size: 0.675rem; color: #047857; font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem;">
-            <span style="width: 5px; height: 5px; border-radius: 50%; background: #10b981;"></span>
-            <span>Launch Area</span>
-          </span>
-          <span style="font-size: 0.675rem; color: var(--color-slate-400); font-weight: 600;">Doorstep Hub</span>
+        <div class="zone-plan-status">
+          <span>Planned launch area</span>
+          <span>Not yet served</span>
         </div>
       </div>
     `

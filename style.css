@@ -368,6 +368,30 @@ button, input, select, textarea {
   }
 }
 
+@media (max-width: 767px) {
+  .brand-wordmark {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-wordmark {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-wordmark {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 767px) and (max-height: 640px) {
+  .brand-wordmark {
+    font-size: 1.1rem;
+  }
+}
+
 .brand-wordmark span {
   font-weight: 700;
 }
@@ -866,6 +890,8 @@ button, input, select, textarea {
   gap: 0.35rem;
   overflow-x: auto;
   padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .tab-pill {
@@ -878,6 +904,7 @@ button, input, select, textarea {
   color: var(--color-slate-600);
   cursor: pointer;
   white-space: nowrap;
+  flex: 0 0 auto;
   transition: all 0.15s var(--ease-smooth);
 }
 
@@ -934,6 +961,19 @@ button, input, select, textarea {
   font-weight: 800;
   color: var(--color-slate-900);
   margin-bottom: 0.25rem;
+}
+
+.zone-plan-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-slate-100);
+  color: var(--color-slate-500);
+  font-size: 0.675rem;
+  font-weight: 700;
 }
 
 .zone-caption {
@@ -1009,6 +1049,35 @@ button, input, select, textarea {
   display: grid;
   place-items: center;
   flex-shrink: 0;
+}
+
+.offer-item-savings .offer-icon,
+.offer-item-delivery .offer-icon {
+  background: var(--color-emerald-bg);
+  color: var(--color-emerald-text);
+}
+
+.offer-item-home .offer-icon,
+.offer-item-support .offer-icon {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.offer-item-simple .offer-icon,
+.offer-item-invoice .offer-icon {
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+}
+
+.offer-item-flexible .offer-icon,
+.offer-item-records .offer-icon {
+  background: #ecfeff;
+  color: #0e7490;
+}
+
+.offer-item-hassle .offer-icon {
+  background: #fffbeb;
+  color: #b45309;
 }
 
 .offer-item h3 {

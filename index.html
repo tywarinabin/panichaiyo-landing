@@ -26,7 +26,7 @@
     <div class="container top-bar-container">
       <div class="top-bar-left">
         <span class="live-pulse-dot"></span>
-        <span class="top-bar-msg">Launching in 40 places across Kathmandu.</span>
+        <span class="top-bar-msg">Planning launch in 40 Kathmandu areas.</span>
       </div>
       <div class="top-bar-right">
         <span class="top-bar-helpline">Helpline: <a href="tel:+97714412345">+977 1-4412345</a></span>
@@ -48,7 +48,7 @@
 
       <!-- Short Navigation Links -->
       <nav class="nav-menu">
-        <a href="#areas" class="nav-link">Launch Areas</a>
+        <a href="#areas" class="nav-link">Areas</a>
         <a href="#offers" class="nav-link">What We Provide</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -69,7 +69,7 @@
 
     <!-- Mobile Navigation Panel -->
     <div id="mobileNavPanel" class="mobile-nav-panel">
-      <a href="#areas" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Launch Areas (40 Hubs)</a>
+      <a href="#areas" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Areas</a>
       <a href="#offers" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">What We Provide</a>
       <a href="#how-it-works" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">How It Works</a>
       <a href="#contact" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Contact & Helpline</a>
@@ -115,7 +115,7 @@
           <div class="metrics-row">
             <div class="metric-card">
               <span class="metric-num">40</span>
-              <span class="metric-caption">Kathmandu Areas</span>
+              <span class="metric-caption">Planned Areas</span>
             </div>
             <div class="metric-card">
               <span class="metric-num">24h</span>
@@ -154,7 +154,7 @@
   </section>
 
   <!-- ========================================================
-       KATHMANDU LAUNCH AREAS (READ ONLY — NO LOCATION PICKER)
+      KATHMANDU PLANNED LAUNCH AREAS
        ======================================================== -->
   <section id="areas" class="section section-alt">
     <div class="container">
@@ -164,10 +164,10 @@
           <i class="fa-solid fa-map-location-dot"></i> Planned Launch Coverage
         </span>
         <h2 class="title-lg">
-          40 Neighborhoods Across 4 Kathmandu Areas
+          40 Planned Neighborhoods Across 4 Kathmandu Areas
         </h2>
         <p class="subtitle">
-          Pani Chaiyo is launching across 4 core municipal zones in Kathmandu. Check if your neighborhood is covered below.
+          These neighborhoods are planned for a future launch, not current delivery. Join the waitlist for launch updates.
         </p>
       </div>
 
@@ -178,13 +178,14 @@
           <input 
             type="text" 
             id="locationSearchInput" 
-            placeholder="Search your Kathmandu area (e.g. Baluwatar, Baneshwor, Thamel)..." 
+            placeholder="Search areas, e.g. Baluwatar" 
+            aria-label="Search planned Kathmandu areas"
             class="search-input"
           />
         </div>
 
         <div class="tabs-group">
-          <button type="button" class="tab-pill active" data-zone="all">All Kathmandu (40)</button>
+          <button type="button" class="tab-pill active" data-zone="all">All Areas (40)</button>
           <button type="button" class="tab-pill" data-zone="ktm-north">Central & North (10)</button>
           <button type="button" class="tab-pill" data-zone="ktm-east">East & Airport (10)</button>
           <button type="button" class="tab-pill" data-zone="ktm-west">West & Ring Road (10)</button>
@@ -212,15 +213,15 @@
       </div>
 
       <div class="offer-grid">
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-tag"></i></span><div><h3>Lower prices</h3><p>Get a 20L jar for ₹50 instead of the usual ₹80.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3>Free delivery over ₹500</h3><p>Delivery is on us when your order total is above ₹500.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-house"></i></span><div><h3>Convenient doorstep service</h3><p>Get drinking water delivered where you need it.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-list-check"></i></span><div><h3>Simple ordering</h3><p>Choose what you need and place an order without extra steps.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-calendar-days"></i></span><div><h3>Flexible order options</h3><p>Order once or choose daily, weekly, or monthly delivery to suit your routine.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span><div><h3>Less hassle</h3><p>No repeated calls or last-minute runs to arrange your water.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-file-invoice"></i></span><div><h3>Business invoices</h3><p>Get invoices and clear billing records for your workplace.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-chart-line"></i></span><div><h3>Daily or monthly records</h3><p>Keep track of business orders and spending by day or month.</p></div></article>
-        <article class="offer-item"><span class="offer-icon"><i class="fa-solid fa-headset"></i></span><div><h3>24-hour support</h3><p>Reach our support team whenever you need help with an order.</p></div></article>
+        <article class="offer-item offer-item-savings"><span class="offer-icon"><i class="fa-solid fa-indian-rupee-sign"></i></span><div><h3>Lower prices</h3><p>Get a 20L jar for ₹50 instead of the usual ₹80.</p></div></article>
+        <article class="offer-item offer-item-delivery"><span class="offer-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3>Free delivery over ₹500</h3><p>Delivery is on us when your order total is above ₹500.</p></div></article>
+        <article class="offer-item offer-item-home"><span class="offer-icon"><i class="fa-solid fa-house"></i></span><div><h3>Convenient doorstep service</h3><p>Get drinking water delivered where you need it.</p></div></article>
+        <article class="offer-item offer-item-simple"><span class="offer-icon"><i class="fa-solid fa-list-check"></i></span><div><h3>Simple ordering</h3><p>Choose what you need and place an order without extra steps.</p></div></article>
+        <article class="offer-item offer-item-flexible"><span class="offer-icon"><i class="fa-solid fa-calendar-days"></i></span><div><h3>Flexible order options</h3><p>Order once or choose daily, weekly, or monthly delivery to suit your routine.</p></div></article>
+        <article class="offer-item offer-item-hassle"><span class="offer-icon"><i class="fa-solid fa-box-open"></i></span><div><h3>Less hassle</h3><p>No repeated calls or last-minute runs to arrange your water.</p></div></article>
+        <article class="offer-item offer-item-invoice"><span class="offer-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><h3>Business invoices</h3><p>Get invoices and clear billing records for your workplace.</p></div></article>
+        <article class="offer-item offer-item-records"><span class="offer-icon"><i class="fa-solid fa-chart-column"></i></span><div><h3>Daily or monthly records</h3><p>Keep track of business orders and spending by day or month.</p></div></article>
+        <article class="offer-item offer-item-support"><span class="offer-icon"><i class="fa-solid fa-headset"></i></span><div><h3>24-hour support</h3><p>Reach our support team whenever you need help with an order.</p></div></article>
       </div>
     </div>
   </section>
