@@ -119,10 +119,6 @@ function renderLaunchAreas() {
           </div>
         </div>
 
-        <div class="zone-plan-status">
-          <span>Planned launch area</span>
-          <span>Not yet served</span>
-        </div>
       </div>
     `
     })

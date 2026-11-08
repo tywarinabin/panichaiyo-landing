@@ -612,6 +612,74 @@ button, input, select, textarea {
   margin-bottom: 1.35rem;
 }
 
+.hero-inline-brand {
+  font-size: 1em;
+  vertical-align: baseline;
+}
+
+.hero-launch-offer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.8rem;
+  row-gap: 0.15rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.85rem;
+  border-left: 3px solid var(--color-emerald-main);
+  background: rgba(236, 253, 245, 0.78);
+}
+
+.hero-offer-kicker {
+  grid-column: 1 / -1;
+  color: var(--color-emerald-text);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.hero-offer-kicker i {
+  margin-right: 0.2rem;
+}
+
+.hero-offer-price-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.hero-offer-price {
+  color: var(--color-emerald-text);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-offer-was {
+  color: #b91c1c;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.hero-offer-note {
+  color: var(--color-slate-600);
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .hero-launch-offer {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-offer-price {
+    font-size: 2.3rem;
+  }
+}
+
 @media (min-width: 640px) {
   .hero-desc {
     font-size: 0.95rem;
@@ -636,7 +704,7 @@ button, input, select, textarea {
 
 .metrics-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
   margin-top: 1.5rem;
   max-width: 30rem;
@@ -693,13 +761,6 @@ button, input, select, textarea {
     font-size: 1.35rem;
   }
 
-  .metric-price-old {
-    font-size: 0.85rem;
-  }
-
-  .metric-price-new {
-    font-size: 1.35rem;
-  }
 }
 
 .metric-caption {
@@ -728,6 +789,7 @@ button, input, select, textarea {
 
 @media (min-width: 1024px) {
   .hero-feature-card {
+    width: min(100%, 34rem);
     margin-right: 0;
   }
 }
@@ -767,8 +829,19 @@ button, input, select, textarea {
 
 @media (min-width: 1024px) {
   .hero-img {
-    height: 17rem;
-    max-width: 15rem;
+    height: 20rem;
+    max-width: 18rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-img {
+    height: 27rem;
+    max-width: 25rem;
+  }
+
+  .hero-feature-card {
+    width: min(100%, 42rem);
   }
 }
 
@@ -961,19 +1034,6 @@ button, input, select, textarea {
   font-weight: 800;
   color: var(--color-slate-900);
   margin-bottom: 0.25rem;
-}
-
-.zone-plan-status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--color-slate-100);
-  color: var(--color-slate-500);
-  font-size: 0.675rem;
-  font-weight: 700;
 }
 
 .zone-caption {
