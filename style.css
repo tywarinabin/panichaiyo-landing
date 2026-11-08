@@ -442,6 +442,43 @@ button, input, select, textarea {
   gap: 0.5rem;
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.55rem;
+  background: var(--color-slate-50);
+}
+
+.language-toggle button {
+  min-height: 1.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: var(--color-slate-600);
+  font-size: 0.675rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.language-toggle button.is-active {
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.language-toggle button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 @media (max-width: 480px) {
   .nav-actions .btn-primary {
     padding: 0.4rem 0.75rem !important;
@@ -449,17 +486,35 @@ button, input, select, textarea {
   }
 }
 
+@media (max-width: 360px) {
+  .navbar-container .nav-actions > .btn-primary {
+    display: none;
+  }
+}
+
 .mobile-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-slate-200);
-  background: var(--color-white);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
   color: var(--color-slate-700);
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mobile-toggle:hover {
+  background: var(--color-slate-100);
+  color: var(--color-primary);
+}
+
+.mobile-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 @media (min-width: 768px) {
@@ -475,11 +530,41 @@ button, input, select, textarea {
   padding: 1rem 1.25rem;
   flex-direction: column;
   gap: 0.35rem;
+  align-items: center;
   box-shadow: var(--shadow-lg);
+}
+
+.nav-menu .language-toggle {
+  margin-left: 0.35rem;
 }
 
 .mobile-nav-panel.open {
   display: flex;
+}
+
+.mobile-nav-panel .language-toggle {
+  margin-bottom: 0.35rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mobile-nav-panel .nav-link {
+  width: min(100%, 28rem);
+  text-align: center;
+}
+
+.mobile-nav-panel .btn-primary {
+  max-width: 28rem;
 }
 
 /* ========================================================
@@ -704,7 +789,7 @@ button, input, select, textarea {
 
 .metrics-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
   margin-top: 1.5rem;
   max-width: 30rem;

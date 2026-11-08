@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pani Chaiyo — On-Demand Drinking Water Delivery Platform for Kathmandu</title>
+  <title id="pageTitle">पानी चाहियो — काठमाडौंमा पिउने पानी डेलिभरी</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   
   <!-- Preconnect & Google Fonts (Comfortaa bold curly font, Outfit, Plus Jakarta Sans) -->
@@ -26,11 +26,11 @@
     <div class="container top-bar-container">
       <div class="top-bar-left">
         <span class="live-pulse-dot"></span>
-        <span class="top-bar-msg">Planning launch in 40 Kathmandu areas.</span>
+        <span class="top-bar-msg" data-i18n="banner.message">काठमाडौंका ४० क्षेत्रमा सेवा सुरु गर्ने तयारीमा</span>
       </div>
       <div class="top-bar-right">
-        <span class="top-bar-helpline">Helpline: <a href="tel:+97714412345">+977 1-4412345</a></span>
-        <button type="button" class="top-bar-close-btn" onclick="dismissTopBanner()" aria-label="Close notification">
+        <span class="top-bar-helpline"><span data-i18n="banner.helpline">सहायता:</span> <a href="tel:+97714412345">+977 1-4412345</a></span>
+        <button type="button" class="top-bar-close-btn" onclick="dismissTopBanner()" aria-label="सूचना बन्द गर्नुहोस्" data-i18n-aria="banner.close">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -48,33 +48,43 @@
 
       <!-- Short Navigation Links -->
       <nav class="nav-menu">
-        <a href="#areas" class="nav-link">Areas</a>
-        <a href="#offers" class="nav-link">What We Provide</a>
-        <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#areas" class="nav-link" data-i18n="nav.areas">क्षेत्रहरू</a>
+        <a href="#offers" class="nav-link" data-i18n="nav.offers">हाम्रा सेवाहरू</a>
+        <a href="#how-it-works" class="nav-link" data-i18n="nav.how">कसरी काम गर्छ</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">सम्पर्क</a>
+        <fieldset class="language-toggle" aria-label="भाषा छान्नुहोस्" data-i18n-aria="language.label">
+          <legend class="sr-only" data-i18n="language.label">भाषा छान्नुहोस्</legend>
+          <button type="button" data-language="ne" aria-pressed="true">नेपाली</button>
+          <button type="button" data-language="en" aria-pressed="false">English</button>
+        </fieldset>
       </nav>
 
       <!-- Customer Waitlist CTA Button -->
       <div class="nav-actions">
         <button type="button" onclick="openWaitlistModal()" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.775rem;">
           <i class="fa-solid fa-bell"></i>
-          <span>Join Waitlist</span>
+          <span data-i18n="waitlist.join">सूचीमा नाम लेखाउनुहोस्</span>
         </button>
 
-        <button type="button" id="mobileToggle" class="mobile-toggle" aria-label="Toggle navigation menu">
-          <i class="fa-solid fa-bars"></i>
+        <button type="button" id="mobileToggle" class="mobile-toggle" aria-label="मेनु खोल्नुहोस् वा बन्द गर्नुहोस्" data-i18n-aria="nav.toggle">
+          <i class="fa-solid fa-bars-staggered" aria-hidden="true"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Navigation Panel -->
     <div id="mobileNavPanel" class="mobile-nav-panel">
-      <a href="#areas" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Areas</a>
-      <a href="#offers" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">What We Provide</a>
-      <a href="#how-it-works" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">How It Works</a>
-      <a href="#contact" class="nav-link" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">Contact & Helpline</a>
+      <fieldset class="language-toggle" aria-label="भाषा छान्नुहोस्" data-i18n-aria="language.label">
+        <legend class="sr-only" data-i18n="language.label">भाषा छान्नुहोस्</legend>
+        <button type="button" data-language="ne" aria-pressed="true">नेपाली</button>
+        <button type="button" data-language="en" aria-pressed="false">English</button>
+      </fieldset>
+      <a href="#areas" class="nav-link" data-i18n="nav.areas" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">क्षेत्रहरू</a>
+      <a href="#offers" class="nav-link" data-i18n="nav.offers" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">हाम्रा सेवाहरू</a>
+      <a href="#how-it-works" class="nav-link" data-i18n="nav.how" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">कसरी काम गर्छ</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contactMobile" onclick="document.getElementById('mobileNavPanel').classList.remove('open')">सम्पर्क तथा सहयोग</a>
       <button type="button" onclick="openWaitlistModal(); document.getElementById('mobileNavPanel').classList.remove('open');" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
-        Join Customer Waitlist
+        <span data-i18n="waitlist.joinMobile">जानकारी पाउनुहोस्</span>
       </button>
     </div>
   </header>
@@ -89,19 +99,19 @@
         <!-- Left Hero Copy -->
         <div>
           <span class="eyebrow">
-            <i class="fa-solid fa-layer-group"></i> On-Demand Drinking Water Platform
+            <i class="fa-solid fa-layer-group"></i> <span data-i18n="hero.eyebrow">अनलाइन पिउने पानी डेलिभरी</span>
           </span>
 
           <h1 class="hero-title">
-            The on-demand water delivery network for <span class="hero-title-highlight">Kathmandu.</span>
+            <span data-i18n="hero.title">काठमाडौंका लागि पिउने पानी डेलिभरी सेवा</span>
           </h1>
 
-          <p class="hero-desc">
-            Ghar hos ya office, 20 L jar magauna aba sajilo. <span class="brand-wordmark hero-inline-brand" aria-label="Pani Chaiyo"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></span> bata order garnuhos, pani sidai ghar samma.
+          <p class="hero-desc" data-i18n-html="hero.description">
+            घर होस् वा अफिस, २० लिटरको जार अब सजिलै मगाउनुहोस्। <span class="brand-wordmark hero-inline-brand" aria-label="Pani Chaiyo"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></span> बाट अर्डर गर्नुहोस्, पानी सिधै तपाईंको घरसम्म।
           </p>
 
-          <div class="hero-launch-offer" aria-label="20 liter jar launch price: 50 rupees, reduced from 80 rupees">
-            <span class="hero-offer-kicker"><i class="fa-solid fa-tag" aria-hidden="true"></i> 20 L jar launch price</span>
+          <div class="hero-launch-offer" aria-label="२० लिटर जारको सुरुवाती मूल्य: ५० रुपैयाँ, ८० बाट घटाइएको" data-i18n-aria="hero.offerAria">
+            <span class="hero-offer-kicker"><i class="fa-solid fa-tag" aria-hidden="true"></i> <span data-i18n="hero.priceLabel">२० लिटर जारको सुरुवाती मूल्य</span></span>
             <div class="hero-offer-price-line">
               <span class="hero-offer-price">₹50</span>
               <span class="hero-offer-was">₹80</span>
@@ -111,23 +121,27 @@
           <div class="hero-actions">
             <button type="button" onclick="openWaitlistModal()" class="btn btn-primary">
               <i class="fa-solid fa-bell"></i>
-              <span>Get Notified</span>
+              <span data-i18n="hero.notify">सुरुवातको जानकारी पाउनुहोस्</span>
             </button>
             <button type="button" onclick="document.getElementById('offers').scrollIntoView({ behavior: 'smooth' })" class="btn btn-secondary">
               <i class="fa-solid fa-tags"></i>
-              <span>Explore Our Offers</span>
+              <span data-i18n="hero.explore">सेवाहरू हेर्नुहोस्</span>
             </button>
           </div>
 
           <!-- Hero Metrics -->
           <div class="metrics-row">
             <div class="metric-card">
-              <span class="metric-num">40</span>
-              <span class="metric-caption">Planned Areas</span>
+              <span class="metric-num" data-i18n="hero.metricCountAreas">४०</span>
+              <span class="metric-caption" data-i18n="hero.metricAreas">योजनामा रहेका क्षेत्र</span>
             </div>
             <div class="metric-card">
-              <span class="metric-num">24h</span>
-              <span class="metric-caption">Customer Support</span>
+              <span class="metric-num" data-i18n="hero.metricCountSupport">२४ घण्टा</span>
+              <span class="metric-caption" data-i18n="hero.metricSupport">ग्राहक सहायता</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num" data-i18n="hero.metricCountOffers">छिट्टै</span>
+              <span class="metric-caption" data-i18n="hero.metricOffers">थप सेवाहरू</span>
             </div>
           </div>
         </div>
@@ -138,13 +152,14 @@
             <div class="hero-product-pane">
               <img 
                 src="./images/jar-20l-panichaiyo.png" 
-                alt="Pani Chaiyo 20 L Purified Water Jar" 
+                alt="पानी चाहियो २० लिटर शुद्ध पानीको जार"
+                data-i18n-alt="hero.imageAlt"
                 class="hero-img"
                 onerror="this.onerror=null; this.src='./images/jar-20l.jpg';"
               />
               <div class="hero-product-caption">
-                <span class="hero-overlay-title">20 L Purified Water Jar</span>
-                <span class="hero-coming-soon"><span class="badge-dot-emerald"></span>Coming Soon</span>
+                <span class="hero-overlay-title" data-i18n="hero.product">२० लिटर शुद्ध पानीको जार</span>
+                <span class="hero-coming-soon"><span class="badge-dot-emerald"></span><span data-i18n="common.comingSoon">छिट्टै आउँदैछ</span></span>
               </div>
             </div>
           </div>
@@ -162,13 +177,13 @@
       
       <div class="header-center">
         <span class="eyebrow">
-          <i class="fa-solid fa-map-location-dot"></i> Planned Launch Coverage
+          <i class="fa-solid fa-map-location-dot"></i> <span data-i18n="areas.eyebrow">योजनामा रहेको सेवा क्षेत्र</span>
         </span>
         <h2 class="title-lg">
-          40 Planned Neighborhoods Across 4 Kathmandu Areas
+          <span data-i18n="areas.title">काठमाडौंका ४ क्षेत्रमा ४० वटा योजनाबद्ध बस्ती</span>
         </h2>
         <p class="subtitle">
-          These neighborhoods are planned for a future launch, not current delivery. Join the waitlist for launch updates.
+          <span data-i18n="areas.description">यी क्षेत्रहरू भविष्यमा सेवा सुरु गर्ने योजनामा छन्। हाल यहाँ डेलिभरी उपलब्ध छैन। सुरुवातको जानकारीका लागि प्रतीक्षा सूचीमा नाम लेखाउनुहोस्।</span>
         </p>
       </div>
 
@@ -179,18 +194,20 @@
           <input 
             type="text" 
             id="locationSearchInput" 
-            placeholder="Search areas, e.g. Baluwatar" 
-            aria-label="Search planned Kathmandu areas"
+            placeholder="क्षेत्र खोज्नुहोस्, जस्तै बालुवाटार"
+            data-i18n-placeholder="areas.searchPlaceholder"
+            aria-label="योजनामा रहेका काठमाडौंका क्षेत्र खोज्नुहोस्"
+            data-i18n-aria="areas.searchLabel"
             class="search-input"
           />
         </div>
 
         <div class="tabs-group">
-          <button type="button" class="tab-pill active" data-zone="all">All Areas (40)</button>
-          <button type="button" class="tab-pill" data-zone="ktm-north">Central & North (10)</button>
-          <button type="button" class="tab-pill" data-zone="ktm-east">East & Airport (10)</button>
-          <button type="button" class="tab-pill" data-zone="ktm-west">West & Ring Road (10)</button>
-          <button type="button" class="tab-pill" data-zone="ktm-south">South & Heritage (10)</button>
+          <button type="button" class="tab-pill active" data-zone="all">सबै क्षेत्र (४०)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-north">मध्य र उत्तर (१०)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-east">पूर्व र विमानस्थल (१०)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-west">पश्चिम र रिङ रोड (१०)</button>
+          <button type="button" class="tab-pill" data-zone="ktm-south">दक्षिण र सम्पदा क्षेत्र (१०)</button>
         </div>
       </div>
 
@@ -208,21 +225,21 @@
   <section id="offers" class="section">
     <div class="container">
       <div class="header-center">
-        <span class="eyebrow eyebrow-emerald"><i class="fa-solid fa-circle-check"></i> What We Provide</span>
-        <h2 class="title-lg">Water delivery, made easier</h2>
-        <p class="subtitle">Straightforward prices, flexible ordering, and dependable support for homes and businesses.</p>
+        <span class="eyebrow eyebrow-emerald"><i class="fa-solid fa-circle-check"></i> <span data-i18n="offers.eyebrow">हाम्रा सेवाहरू</span></span>
+        <h2 class="title-lg" data-i18n="offers.title">पानी मगाउन अब अझ सजिलो</h2>
+        <p class="subtitle" data-i18n="offers.description">घर र व्यवसायका लागि उचित मूल्य, सहज अर्डर र भरपर्दो सहायता।</p>
       </div>
 
       <div class="offer-grid">
-        <article class="offer-item offer-item-savings"><span class="offer-icon"><i class="fa-solid fa-indian-rupee-sign"></i></span><div><h3>Lower prices</h3><p>Get a 20L jar for ₹50 instead of the usual ₹80.</p></div></article>
-        <article class="offer-item offer-item-delivery"><span class="offer-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3>Free delivery over ₹500</h3><p>Delivery is on us when your order total is above ₹500.</p></div></article>
-        <article class="offer-item offer-item-home"><span class="offer-icon"><i class="fa-solid fa-house"></i></span><div><h3>Convenient doorstep service</h3><p>Get drinking water delivered where you need it.</p></div></article>
-        <article class="offer-item offer-item-simple"><span class="offer-icon"><i class="fa-solid fa-list-check"></i></span><div><h3>Simple ordering</h3><p>Choose what you need and place an order without extra steps.</p></div></article>
-        <article class="offer-item offer-item-flexible"><span class="offer-icon"><i class="fa-solid fa-calendar-days"></i></span><div><h3>Flexible order options</h3><p>Order once or choose daily, weekly, or monthly delivery to suit your routine.</p></div></article>
-        <article class="offer-item offer-item-hassle"><span class="offer-icon"><i class="fa-solid fa-box-open"></i></span><div><h3>Less hassle</h3><p>No repeated calls or last-minute runs to arrange your water.</p></div></article>
-        <article class="offer-item offer-item-invoice"><span class="offer-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><h3>Business invoices</h3><p>Get invoices and clear billing records for your workplace.</p></div></article>
-        <article class="offer-item offer-item-records"><span class="offer-icon"><i class="fa-solid fa-chart-column"></i></span><div><h3>Daily or monthly records</h3><p>Keep track of business orders and spending by day or month.</p></div></article>
-        <article class="offer-item offer-item-support"><span class="offer-icon"><i class="fa-solid fa-headset"></i></span><div><h3>24-hour support</h3><p>Reach our support team whenever you need help with an order.</p></div></article>
+        <article class="offer-item offer-item-savings"><span class="offer-icon"><i class="fa-solid fa-indian-rupee-sign"></i></span><div><h3 data-i18n="offers.priceTitle">उचित मूल्य</h3><p data-i18n="offers.priceText">सामान्य ₹८० पर्ने २० लिटरको जार अब ₹५० मा।</p></div></article>
+        <article class="offer-item offer-item-delivery"><span class="offer-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3 data-i18n="offers.deliveryTitle">₹५०० भन्दा माथिको अर्डरमा निःशुल्क डेलिभरी</h3><p data-i18n="offers.deliveryText">₹५०० भन्दा बढीको अर्डरमा डेलिभरी शुल्क लाग्दैन।</p></div></article>
+        <article class="offer-item offer-item-home"><span class="offer-icon"><i class="fa-solid fa-house"></i></span><div><h3 data-i18n="offers.homeTitle">ढोकामै सुविधा</h3><p data-i18n="offers.homeText">पिउने पानी तपाईंले चाहेको ठाउँमै पाउनुहोस्।</p></div></article>
+        <article class="offer-item offer-item-simple"><span class="offer-icon"><i class="fa-solid fa-list-check"></i></span><div><h3 data-i18n="offers.simpleTitle">सजिलो अर्डर</h3><p data-i18n="offers.simpleText">आफूलाई चाहिएको पानी छानेर सजिलै अर्डर गर्नुहोस्।</p></div></article>
+        <article class="offer-item offer-item-flexible"><span class="offer-icon"><i class="fa-solid fa-calendar-days"></i></span><div><h3 data-i18n="offers.flexibleTitle">आफ्नो समयअनुसार अर्डर</h3><p data-i18n="offers.flexibleText">एकपटक, दैनिक, साप्ताहिक वा मासिक डेलिभरी रोज्नुहोस्।</p></div></article>
+        <article class="offer-item offer-item-hassle"><span class="offer-icon"><i class="fa-solid fa-box-open"></i></span><div><h3 data-i18n="offers.hassleTitle">झन्झट कम</h3><p data-i18n="offers.hassleText">पानी मिलाउन बारम्बार फोन गर्नुपर्ने झन्झट हटाउनुहोस्।</p></div></article>
+        <article class="offer-item offer-item-invoice"><span class="offer-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span><div><h3 data-i18n="offers.invoiceTitle">व्यवसायका लागि बिल</h3><p data-i18n="offers.invoiceText">कार्यालयको हिसाबका लागि स्पष्ट बिल पाउनुहोस्।</p></div></article>
+        <article class="offer-item offer-item-records"><span class="offer-icon"><i class="fa-solid fa-chart-column"></i></span><div><h3 data-i18n="offers.recordsTitle">दैनिक वा मासिक रेकर्ड</h3><p data-i18n="offers.recordsText">अर्डर र खर्चको विवरण सजिलै राख्नुहोस्।</p></div></article>
+        <article class="offer-item offer-item-support"><span class="offer-icon"><i class="fa-solid fa-headset"></i></span><div><h3 data-i18n="offers.supportTitle">२४ घण्टा सहायता</h3><p data-i18n="offers.supportText">अर्डरसम्बन्धी सहयोगका लागि हाम्रो टोलीलाई सम्पर्क गर्नुहोस्।</p></div></article>
       </div>
     </div>
   </section>
@@ -235,39 +252,39 @@
       
       <div class="header-center">
         <span class="eyebrow">
-          <i class="fa-solid fa-diagram-project"></i> Simple Operations
+          <i class="fa-solid fa-diagram-project"></i> <span data-i18n="workflow.eyebrow">सरल प्रक्रिया</span>
         </span>
         <h2 class="title-lg">
-          How <span class="brand-wordmark" style="font-size: 1em;"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></span> Operates
+          <span data-i18n="workflow.title">अर्डर प्रक्रिया</span>
         </h2>
         <p class="subtitle">
-          A simple 3-stage flow from choosing your water to doorstep delivery.
+          <span data-i18n="workflow.description">पानी छान्नेदेखि घरमै पाउनेसम्मका तीन सजिला चरण।</span>
         </p>
       </div>
 
       <div class="steps-grid">
         
         <div class="step-card">
-          <span class="step-badge">Stage 01</span>
-          <h3 class="step-title">Customer Places Order</h3>
+          <span class="step-badge" data-i18n="workflow.stage1">चरण ०१</span>
+          <h3 class="step-title" data-i18n="workflow.title1">अर्डर गर्नुहोस्</h3>
           <p class="step-text">
-            Households and offices request 20L jars or sealed bottle packs on the Pani Chaiyo platform.
+            <span data-i18n="workflow.text1">घर वा कार्यालयका लागि २० लिटरको जार वा सिलबन्दी बोतल अर्डर गर्नुहोस्।</span>
           </p>
         </div>
 
         <div class="step-card">
-          <span class="step-badge">Stage 02</span>
-          <h3 class="step-title">Your Order Is Prepared</h3>
+          <span class="step-badge" data-i18n="workflow.stage2">चरण ०२</span>
+          <h3 class="step-title" data-i18n="workflow.title2">अर्डर तयार हुन्छ</h3>
           <p class="step-text">
-            Your water order is prepared and sent out for delivery in your area.
+            <span data-i18n="workflow.text2">तपाईंको क्षेत्रमा डेलिभरीका लागि पानी तयार गरिन्छ।</span>
           </p>
         </div>
 
         <div class="step-card">
-          <span class="step-badge">Stage 03</span>
-          <h3 class="step-title">Doorstep Delivery</h3>
+          <span class="step-badge" data-i18n="workflow.stage3">चरण ०३</span>
+          <h3 class="step-title" data-i18n="workflow.title3">घरमै डेलिभरी</h3>
           <p class="step-text">
-            Receive your jars at the door and pay using the available payment options.
+            <span data-i18n="workflow.text3">आफ्नो ढोकामै जार लिनुहोस् र उपलब्ध माध्यमबाट भुक्तानी गर्नुहोस्।</span>
           </p>
         </div>
 
@@ -286,13 +303,13 @@
           
           <div class="contact-intro">
             <span class="eyebrow eyebrow-emerald">
-              <i class="fa-solid fa-headset"></i> Central Dispatch Desk
+              <i class="fa-solid fa-headset"></i> <span data-i18n="contact.eyebrow">ग्राहक सहायता</span>
             </span>
             <h2 class="title-lg">
-              Have questions about our Kathmandu launch?
+              <span data-i18n="contact.title">हाम्रो सेवाबारे केही सोध्नुछ?</span>
             </h2>
             <p class="subtitle">
-              Need help with an order or have a question about delivery? Our local team is here to assist.
+              <span data-i18n="contact.description">अर्डर वा डेलिभरीबारे सहयोग चाहिन्छ? हाम्रो टोली तपाईंलाई मद्दत गर्न तयार छ।</span>
             </p>
           </div>
 
@@ -304,9 +321,9 @@
                 <i class="fa-solid fa-phone"></i>
               </div>
               <div class="contact-tile-body">
-                <span class="contact-tile-label">Direct Line</span>
+                <span class="contact-tile-label" data-i18n="contact.phoneTitle">फोन गर्नुहोस्</span>
                 <span class="contact-tile-value">+977 1-4412345</span>
-                <span class="contact-tile-hint">Tap to call support &bull; Kathmandu</span>
+                <span class="contact-tile-hint" data-i18n="contact.phoneHint">सहयोगका लागि फोन गर्नुहोस्</span>
               </div>
               <div class="contact-tile-arrow">
                 <i class="fa-solid fa-arrow-right"></i>
@@ -319,9 +336,9 @@
                 <i class="fa-solid fa-clock"></i>
               </div>
               <div class="contact-tile-body">
-                <span class="contact-tile-label">Operating Hours</span>
-                <span class="contact-tile-value">7:00 AM – 8:00 PM</span>
-                <span class="contact-tile-hint">Monday through Sunday Daily</span>
+                <span class="contact-tile-label" data-i18n="contact.hoursTitle">सेवा समय</span>
+                <span class="contact-tile-value" data-i18n="contact.hoursValue">बिहान ७ – बेलुका ८</span>
+                <span class="contact-tile-hint" data-i18n="contact.hoursHint">सोमबारदेखि आइतबारसम्म</span>
               </div>
             </div>
 
@@ -331,9 +348,9 @@
                 <i class="fa-solid fa-envelope"></i>
               </div>
               <div class="contact-tile-body">
-                <span class="contact-tile-label">Email Inquiries</span>
+                <span class="contact-tile-label" data-i18n="contact.emailTitle">इमेल</span>
                 <span class="contact-tile-value">support@panichaiyo.com.np</span>
-                <span class="contact-tile-hint">Fast response within 24 hours</span>
+                <span class="contact-tile-hint" data-i18n="contact.emailHint">२४ घण्टाभित्र जवाफ</span>
               </div>
               <div class="contact-tile-arrow">
                 <i class="fa-solid fa-arrow-right"></i>
@@ -346,11 +363,11 @@
           <div class="contact-footer-bar">
             <div class="contact-location-info">
               <i class="fa-solid fa-location-dot"></i>
-              <span>Central Office: Ward 4, Baluwatar, Kathmandu, Nepal</span>
+              <span data-i18n="contact.address">केन्द्रीय कार्यालय: वडा ४, बालुवाटार, काठमाडौं, नेपाल</span>
             </div>
             <button type="button" onclick="openWaitlistModal()" class="btn btn-secondary" style="font-size: 0.775rem; padding: 0.5rem 1.15rem;">
               <i class="fa-solid fa-bell"></i>
-              <span>Join the Waitlist</span>
+              <span data-i18n="waitlist.join">सूचीमा नाम लेखाउनुहोस्</span>
             </button>
           </div>
 
@@ -369,13 +386,13 @@
         <div class="footer-info">
           <a href="#hero" class="brand-wordmark" style="color: var(--color-white);"><span class="logo-blue">pani</span><span class="logo-red">chaiyo</span></a>
           <p>
-            On-demand drinking water delivery for Kathmandu households and businesses.
+            <span data-i18n="footer.description">काठमाडौंका घरपरिवार र व्यवसायका लागि पिउने पानी डेलिभरी।</span>
           </p>
         </div>
 
         <div class="footer-contact-items">
-          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.05em;">Contact & Location</span>
-          <span>Baluwatar Ward 4, Kathmandu, Nepal</span>
+          <span data-i18n="footer.contactTitle" style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.05em;">सम्पर्क तथा ठेगाना</span>
+          <span data-i18n="contact.addressShort">वडा ४, बालुवाटार, काठमाडौं, नेपाल</span>
           <a href="tel:+97714412345">+977 1-4412345</a>
           <a href="mailto:support@panichaiyo.com.np">support@panichaiyo.com.np</a>
         </div>
@@ -383,8 +400,8 @@
       </div>
 
       <div class="footer-base">
-        <p>&copy; 2026 Pani Chaiyo Nepal Pvt. Ltd. All rights reserved.</p>
-        <p>Kathmandu Valley Drinking Water Marketplace Platform</p>
+        <p data-i18n="footer.copyright">© २०२६ पानी चाहियो नेपाल प्रा.लि. सर्वाधिकार सुरक्षित।</p>
+        <p data-i18n="footer.tagline">काठमाडौं उपत्यकाको पिउने पानी डेलिभरी सेवा</p>
       </div>
     </div>
   </footer>
@@ -397,24 +414,25 @@
       
       <!-- State A: Form View -->
       <div id="waitlistFormView">
-        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="Close modal">
+        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="झ्याल बन्द गर्नुहोस्" data-i18n-aria="modal.close">
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="modal-top">
-          <h3 class="modal-title">Join Waitlist</h3>
-          <p class="modal-subtitle">Get notified when delivery starts in Kathmandu.</p>
+          <h3 class="modal-title" data-i18n="waitlist.title">जानकारी पाउनुहोस्</h3>
+          <p class="modal-subtitle" data-i18n="waitlist.subtitle">काठमाडौंमा डेलिभरी सुरु हुँदा जानकारी पाउनुहोस्।</p>
         </div>
 
         <form id="customerWaitlistForm">
           <div class="form-field">
             <label class="field-label" for="customerPhone">
-              Mobile Number<span class="required-star">*</span>
+              <span data-i18n="waitlist.phone">मोबाइल नम्बर</span><span class="required-star">*</span>
             </label>
             <input 
               type="tel" 
               id="customerPhone" 
               required 
-              placeholder="98XXXXXXXX" 
+              placeholder="९८XXXXXXXX"
+              data-i18n-placeholder="waitlist.phonePlaceholder"
               maxlength="10" 
               class="field-input" 
             />
@@ -422,43 +440,45 @@
 
           <div class="form-field">
             <label class="field-label" for="customerLocation">
-              Delivery location<span class="required-star">*</span>
+              <span data-i18n="waitlist.location">डेलिभरी ठेगाना</span><span class="required-star">*</span>
             </label>
             <input
               type="text"
               id="customerLocation"
               required
-              placeholder="Area, street, or nearby landmark"
+              placeholder="टोल, सडक वा नजिकको चिनारी"
+              data-i18n-placeholder="waitlist.locationPlaceholder"
               class="field-input"
             />
           </div>
 
           <div class="form-field">
             <label class="field-label" for="customerEmail">
-              Email Address <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;">(Optional)</span>
+              <span data-i18n="waitlist.email">इमेल ठेगाना</span> <span style="font-size: 0.7rem; color: var(--color-slate-400); font-weight: 500;" data-i18n="waitlist.optional">(वैकल्पिक)</span>
             </label>
             <input 
               type="email" 
               id="customerEmail" 
-              placeholder="you@example.com" 
+              placeholder="you@example.com"
+              data-i18n-placeholder="waitlist.emailPlaceholder"
               class="field-input" 
             />
           </div>
 
           <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.65rem; margin-top: 0.5rem; font-size: 0.8125rem;">
             <i class="fa-solid fa-check"></i>
-            <span>Join Waitlist</span>
+            <span data-i18n="waitlist.join">सूचीमा नाम लेखाउनुहोस्</span>
           </button>
           
           <p style="font-size: 0.685rem; color: var(--color-slate-400); text-align: center; margin-top: 0.65rem;">
-            No spam. We will inform you once we launch into the market.
+            <span data-i18n="waitlist.privacy">अनावश्यक सन्देश पठाउँदैनौँ। सेवा सुरु भएपछि जानकारी दिन्छौँ।</span>
           </p>
         </form>
       </div>
 
       <!-- State B: Whole Modal Clean Green Tick Success View -->
       <div id="waitlistSuccessView" class="modal-success-full" style="display: none;">
-        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="Close modal">
+        <button type="button" class="modal-close-round" onclick="closeWaitlistModal()" aria-label="झ्याल बन्द गर्नुहोस्" data-i18n-aria="modal.close">
           <i class="fa-solid fa-xmark"></i>
         </button>
         
@@ -466,19 +486,19 @@
           <i class="fa-solid fa-check"></i>
         </div>
 
-        <h3 class="modal-success-title">You're on the Waitlist!</h3>
+        <h3 class="modal-success-title" data-i18n="waitlist.successTitle">तपाईंको नाम सूचीमा थपियो!</h3>
         
         <p class="modal-success-desc">
-          Thank you for signing up (<span id="registeredPhoneDisplay" class="phone-highlight"></span>) near <span id="registeredLocationDisplay" class="phone-highlight"></span>. We will inform you directly once we launch delivery in Kathmandu.
+          <span data-i18n="waitlist.successPrefix">दर्ता गर्नुभएकोमा धन्यवाद।</span> (<span id="registeredPhoneDisplay" class="phone-highlight"></span>) <span data-i18n="waitlist.successNear">ठेगाना:</span> <span id="registeredLocationDisplay" class="phone-highlight"></span>। <span data-i18n="waitlist.successSuffix">काठमाडौंमा डेलिभरी सुरु भएपछि जानकारी दिनेछौँ।</span>
         </p>
 
         <div class="success-badge-row">
-          <span class="success-pill"><i class="fa-solid fa-bell"></i> Launch Alert Active</span>
-          <span class="success-pill"><i class="fa-solid fa-shield-halved"></i> Zero Spam Guarantee</span>
+          <span class="success-pill"><i class="fa-solid fa-bell"></i> <span data-i18n="waitlist.alert">सुरुवातको सूचना</span></span>
+          <span class="success-pill"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="waitlist.noSpam">स्पाम सन्देश छैन</span></span>
         </div>
 
         <button type="button" onclick="closeWaitlistModal()" class="btn btn-primary btn-modal-done">
-          <span>Got It, Thanks</span>
+          <span data-i18n="waitlist.done">हुन्छ, धन्यवाद</span>
         </button>
       </div>
 
